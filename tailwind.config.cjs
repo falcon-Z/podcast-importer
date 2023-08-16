@@ -7,7 +7,14 @@ const config = {
 	darkMode: 'class',
 
 	theme: {
-		extend: {}
+		extend: {
+			colors: {
+				primary: '#1DB954'
+			},
+			backgroundImage: {
+				'spotify-wall': 'url("/bg-spotify.jpg")'
+			}
+		}
 	},
 
 	plugins: [typography, daisyui],
