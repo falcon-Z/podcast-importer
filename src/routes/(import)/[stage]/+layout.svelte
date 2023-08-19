@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import type { LayoutData } from './$types';
+
+	export let data: LayoutData;
+
+	const { steps } = data;
 
 	const currentStage = $page.params.stage;
-
-	const steps = [
-		{ step: 1, name: 'Upload Library' },
-		{ step: 2, name: 'Searching for Podcasts' },
-		{ step: 3, name: 'Subscribing' }
-	];
 </script>
 
 <div class="flex flex-col justify-start items-center h-full py-16 gap-16">
