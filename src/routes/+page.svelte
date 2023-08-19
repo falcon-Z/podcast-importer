@@ -19,7 +19,7 @@
 							class="btn btn-primary btn-circle btn-wide"
 							data-te-ripple-init
 							data-te-ripple-color="light"
-							href="/1"
+							href="/upload"
 							role="button">Get started</a
 						>
 					</div>

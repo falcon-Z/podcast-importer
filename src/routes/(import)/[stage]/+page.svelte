@@ -5,10 +5,12 @@
 	import UploadStage from './components/stages/uploadStage.svelte';
 </script>
 
-{#if $page.params.stage == '1'}
-	<UploadStage />
-{:else if $page.params.stage == '2'}
-	<SearchingStage />
-{:else if $page.params.stage == '3'}
-	<SubscribeStage />
-{/if}
+<div class="flex flex-col justify-around items-center h-full gap-16">
+	{#if $page.params.stage == 'upload'}
+		<UploadStage />
+	{:else if $page.params.stage == 'search'}
+		<SearchingStage />
+	{:else if $page.params.stage == 'subscribe'}
+		<SubscribeStage />
+	{/if}
+</div>
