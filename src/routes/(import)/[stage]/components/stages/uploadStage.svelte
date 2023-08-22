@@ -1,5 +1,12 @@
 <script>
+	import { libraryData } from '$lib/store';
 	import FilePicker from '../filePicker.svelte';
+
+	$: SubscribtionCount = 0;
+
+	$: if ($libraryData) {
+		SubscribtionCount = $libraryData.length;
+	}
 </script>
 
 <div class=" text-center">
@@ -15,3 +22,9 @@
 <div>
 	<FilePicker />
 </div>
+
+{#if SubscribtionCount > 0}
+	<div>
+		<h1 class="text-3xl">{SubscribtionCount}</h1>
+	</div>
+{/if}

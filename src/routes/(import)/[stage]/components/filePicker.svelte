@@ -1,6 +1,6 @@
 <script>
-	// @ts-nocheck
-
+	import { parseLibrary } from '$lib';
+	import { libraryData } from '$lib/store';
 	import Dropzone from 'svelte-file-dropzone/Dropzone.svelte';
 	import { slide } from 'svelte/transition';
 
@@ -15,6 +15,14 @@
 			acceptedFile = acceptedFiles[0].name;
 
 			const fileText = await acceptedFiles[0].text();
+
+			const data = await parseLibrary(fileText);
+
+			const outlines = data.opml.body.outlines;
+
+			const podcasts = data.opml.body.outline.map((o) => ({ title: o._text, url: o._htmlUrl }));
+
+			libraryData.set(podcasts);
 		}
 	};
 	const handleRejetion = (e) => {
@@ -29,7 +37,7 @@
 	containerClasses={'w-full rounded-2xl border-dashed  border-2 border-gray-700/50 p-8'}
 	required
 	multiple={false}
-	accept={['application/xml', 'text/xml', '.opml']}
+	accept={['.opml']}
 	on:dropaccepted={handleFile}
 	on:droprejected={handleRejetion}
 />

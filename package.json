@@ -30,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"fast-xml-parser": "^4.2.7",
 		"svelte-file-dropzone": "^2.0.2"
 	}
 }
