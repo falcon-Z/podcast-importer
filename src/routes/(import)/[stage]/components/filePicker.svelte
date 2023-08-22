@@ -4,8 +4,18 @@
 	import Dropzone from 'svelte-file-dropzone/Dropzone.svelte';
 	import { slide } from 'svelte/transition';
 
+	/**
+	 * File validation errors
+	 * @type {Array<any> | null}
+	 */
 	$: fileErrors = null;
 	$: acceptedFile = null;
+
+	/**
+	 * Handle accepted files from drop
+	 *
+	 * @param {any} e - Drop event
+	 */
 
 	const handleFile = async (e) => {
 		const { acceptedFiles } = e.detail;
@@ -25,6 +35,12 @@
 			libraryData.set(podcasts);
 		}
 	};
+
+	/**
+	 * Handle rejected files from drop
+	 *
+	 * @param {any} e - Drop event
+	 */
 	const handleRejetion = (e) => {
 		const { fileRejections } = e.detail;
 
@@ -40,6 +56,7 @@
 	accept={['.opml']}
 	on:dropaccepted={handleFile}
 	on:droprejected={handleRejetion}
+	inputElement={{}}
 />
 
 {#if acceptedFile}
